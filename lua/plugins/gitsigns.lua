@@ -7,6 +7,7 @@ return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
+
       signs = {
         add = { text = '+' },
         change = { text = '~' },
@@ -19,6 +20,7 @@ return {
 
         local function map(mode, l, r, opts)
           opts = opts or {}
+
           opts.buffer = bufnr
           vim.keymap.set(mode, l, r, opts)
         end
@@ -50,6 +52,7 @@ return {
         end, { desc = 'reset git hunk' })
         -- normal mode
         map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
+
         map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
         map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
         map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
@@ -67,4 +70,3 @@ return {
     },
   },
 }
--- vim: ts=2 sts=2 sw=2 et
