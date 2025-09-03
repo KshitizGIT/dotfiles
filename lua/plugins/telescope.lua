@@ -28,7 +28,7 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -109,7 +109,13 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      local workspace = os.getenv 'HOME' .. '/workspace/JohnSnowLabs/'
+      -- Shortcut for searching in all workspace directory
+      vim.keymap.set('n', '<leader>sj', function()
+        builtin.find_files { cwd = workspace }
+      end, { desc = '[S]earch [J]ohnSnowlabs' }
+      )
     end,
   },
 }
--- vim: ts=2 sts=2 sw=2 et

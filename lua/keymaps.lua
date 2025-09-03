@@ -22,6 +22,6 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 
 -- oil remaps
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-vim.keymap.set('n', '\\', ':Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '\\', ':cd %:h | cd `git rev-parse --show-toplevel`<CR>:Oil<CR>', { desc = 'Open parent directory' })
 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = '[M]ake [F]ormat' })
