@@ -1,8 +1,6 @@
 -- NOTE: Plugins can specify dependencies.
 --
--- The dependencies are proper plugin specifications as well - anything
--- you do for a plugin at the top level, you can do for a dependency.
---
+-- The dependencies are proper plugin specifications as well - anything you do for a plugin at the top level, you can do for a dependency.
 -- Use the `dependencies` key to specify the dependencies of a particular plugin
 
 return {
@@ -61,7 +59,15 @@ return {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            mappings = {
+              i = {
+                ["<C-y>"] = "select_vertical",
+              }
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
