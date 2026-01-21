@@ -1,9 +1,11 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 --
+--
 
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
 
+vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
 vim.keymap.set('n', '<leader>o', ':update<CR>:source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit!<CR>')
@@ -20,8 +22,21 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 
--- oil remaps
-vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-vim.keymap.set('n', '\\', ':cd %:h | cd `git rev-parse --show-toplevel`<CR>:Oil<CR>', { desc = 'Open parent directory' })
+-- Neotree remaps
+vim.keymap.set('n', '\\', '<CMD>Neotree toggle<CR>', { desc = 'Open parent directory' })
+
+vim.keymap.set('n', '<leader>e', function()
+  local git_root = vim.fs.root(0, '.git')
+  if git_root then
+    require('neo-tree.command').execute {
+      toggle = true,
+      dir = git_root,
+    }
+  else
+    print 'No Git root found.'
+    -- Optional: fallback to the current working directory if not in a git repo
+    -- require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+  end
+end, { desc = 'Explorer NeoTree (Git Root)' })
 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = '[M]ake [F]ormat' })

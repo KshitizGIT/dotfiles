@@ -22,6 +22,8 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      sh = { "shfmt" },
+      json = { "prettier"},
     },
     -- Set default options
     default_format_opts = {
