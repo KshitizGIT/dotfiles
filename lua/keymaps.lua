@@ -23,7 +23,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 
 -- Neotree remaps
-vim.keymap.set('n', '\\', '<CMD>Neotree toggle<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '\\', '<CMD>Neotree toggle reveal<CR>', { desc = 'Open parent directory' })
 
 vim.keymap.set('n', '<leader>e', function()
   local git_root = vim.fs.root(0, '.git')

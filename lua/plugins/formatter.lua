@@ -17,6 +17,7 @@ return {
   ---@module "conform"
   ---@type conform.setupOpts
   opts = {
+    notify_on_error = true,
     format_on_save = {
       timeout_ms = 500,
       lsp_format = 'fallback',
@@ -26,6 +27,7 @@ return {
       lua = { 'stylua' },
       python = { 'black', 'isort' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       sh = { 'shfmt' },
       json = { 'prettier' },
     },
