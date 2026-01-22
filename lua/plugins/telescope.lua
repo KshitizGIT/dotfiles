@@ -59,15 +59,17 @@ return {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-y>"] = require('telescope.actions').select_vertical,
+            },
+          },
+        },
         pickers = {
           find_files = {
             hidden = true,
             file_ignore_patterns = { 'node_modules', '.git/', 'env', 'venv' },
-            mappings = {
-              i = {
-                ["<C-y>"] = "select_vertical",
-              }
-            },
           },
         },
         extensions = {

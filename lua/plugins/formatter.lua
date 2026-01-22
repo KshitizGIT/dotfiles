@@ -1,38 +1,42 @@
 return {
-  "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
+  'stevearc/conform.nvim',
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
   keys = {
     {
       -- Customize or remove this keymap to your liking
-      "<leader>f",
+      '<leader>f',
       function()
-        require("conform").format({ async = true })
+        require('conform').format { async = true }
       end,
-      mode = "",
-      desc = "Format buffer",
+      mode = '',
+      desc = 'Format buffer',
     },
   },
   -- This will provide type hinting with LuaLS
   ---@module "conform"
   ---@type conform.setupOpts
   opts = {
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = 'fallback',
+    },
     -- Define your formatters
     formatters_by_ft = {
-      lua = { "stylua" },
-      python = { "isort", "black" },
-      javascript = { "prettierd", "prettier", stop_after_first = true },
-      sh = { "shfmt" },
-      json = { "prettier"},
+      lua = { 'stylua' },
+      python = { 'black', 'isort' },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      sh = { 'shfmt' },
+      json = { 'prettier' },
     },
     -- Set default options
     default_format_opts = {
-      lsp_format = "fallback",
+      lsp_format = 'fallback',
     },
     -- Customize formatters
     formatters = {
       shfmt = {
-        append_args = { "-i", "2" },
+        append_args = { '-i', '2' },
       },
     },
   },
