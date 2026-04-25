@@ -25,7 +25,7 @@ return {
     -- Define your formatters
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'black', 'isort' },
+      python = { 'black', 'ruff' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       sh = { 'shfmt' },
