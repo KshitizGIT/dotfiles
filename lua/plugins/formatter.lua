@@ -19,7 +19,7 @@ return {
   opts = {
     notify_on_error = true,
     format_on_save = {
-      timeout_ms = 500,
+      timeout_ms = 1500,
       lsp_format = 'fallback',
     },
     -- Define your formatters
