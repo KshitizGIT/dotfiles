@@ -5,16 +5,26 @@ return {
     -- Recommended for `ask()` and `select()`.
     -- Required for `snacks` provider.
     ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
-    { 'folke/snacks.nvim', opts = { input = {}, picker = {}, terminal = {} } },
+    { 'folke/snacks.nvim', opts = { input = { enabled = true }, picker = { enabled = true }, terminal = { enabled = true } } },
   },
   config = function()
+    local opencode_cmd = 'opencode'
+    local opencode_terminal_opts = {
+      win = {
+        position = 'right',
+        enter = false,
+      },
+    }
+
     ---@type opencode.Opts
     vim.g.opencode_opts = {
       -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
+      server = {
+        start = function()
+          require('snacks.terminal').open(opencode_cmd, opencode_terminal_opts)
+        end,
+      },
     }
-
-    -- Required for `opts.events.reload`.
-    vim.o.autoread = true
 
     -- Recommended/example keymaps.
     vim.keymap.set({ 'n', 'x' }, '<C-a>', function()
@@ -24,7 +34,7 @@ return {
       require('opencode').select()
     end, { desc = 'Execute opencode action…' })
     vim.keymap.set({ 'n', 't' }, '<C-s>', function()
-      require('opencode').toggle()
+      require('snacks.terminal').toggle(opencode_cmd, opencode_terminal_opts)
     end, { desc = 'Toggle opencode' })
 
     vim.keymap.set({ 'n', 'x' }, 'go', function()
