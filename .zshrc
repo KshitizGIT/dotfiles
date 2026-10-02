@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/opt/nvim/:$PATH"
+export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 alias vi=nvim
 alias vim=nvim
 
@@ -121,6 +121,9 @@ export PATH=$PATH:~/.local/bin
 [[ -e "/home/kshitiz/.oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/kshitiz/.oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh"
 eval "$(rbenv init -)"
 export GEM_HOME=~/.ruby/
-export PATH="$PATH:~/.ruby/bin"
+export PATH=$PATH:~/.ruby/bin
 alias kubectl='kubectl.exe'
 
+
+# opencode
+export PATH=/home/kshitiz/.opencode/bin:$PATH
