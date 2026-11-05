@@ -6,7 +6,7 @@
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
 
 vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
-vim.keymap.set('n', '<leader>o', ':update<CR>:source<CR>', { desc = 'Reload' })
+vim.keymap.set('n', '<leader>o', ':restart<CR>', { desc = 'Reload' })
 vim.keymap.set('n', '<leader>w', ':write<CR>', { desc = 'Save changes' })
 vim.keymap.set('n', '<leader>q', ':bd!<CR>', { desc = 'Close window' })
 -- Diagnostic keymaps
