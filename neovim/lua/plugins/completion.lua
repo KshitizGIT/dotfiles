@@ -7,9 +7,8 @@ return {
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
-      'L3MON4D3/LuaSnip',             -- Snippet engine
       'saadparwaiz1/cmp_luasnip',
-      'rafamadriz/friendly-snippets', -- vscode like snippets
+      'zbirenbaum/copilot-cmp',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
@@ -17,9 +16,7 @@ return {
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
-
-      -- Load VS Code style snippets if you installed friendly-snippets
-      require('luasnip.loaders.from_vscode').lazy_load()
+      require('copilot_cmp').setup()
 
       cmp.setup {
         completion = { completeopt = 'menu,menuone,noselect' },
@@ -57,10 +54,11 @@ return {
 
         },
         sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'buffer' },
-          { name = 'path' },
+          { name = 'copilot',  group_index = 2 },
+          { name = 'luasnip',  group_index = 2 },
+          { name = 'nvim_lsp', group_index = 2 },
+          { name = 'buffer',   group_index = 2 },
+          { name = 'path',     group_index = 2 },
         },
       }
     end,
