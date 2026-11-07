@@ -30,6 +30,7 @@ return {
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       sh = { 'shfmt' },
       json = { 'prettier' },
+      cs = { 'csharpier' }
     },
     -- Set default options
     default_format_opts = {

@@ -6,7 +6,7 @@ return {
   config = function()
     local ts = require 'nvim-treesitter'
     ts.setup {}
-    ts.install { 'c', 'lua', 'vim', 'vimdoc', 'query', 'javascript', 'html', 'python', 'regex' }
+    ts.install { 'c', 'lua', 'vim', 'vimdoc', 'query', 'javascript', 'html', 'python', 'regex', 'c_sharp' }
 
     vim.api.nvim_create_autocmd('FileType', {
       callback = function(args)
