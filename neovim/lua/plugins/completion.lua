@@ -39,8 +39,14 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+        default = {'snippets', 'lsp', 'path', 'buffer', 'copilot' },
         providers = {
+          snippets = {
+          score_offset = 100, -- Increase score so snippets rank higher
+        },
+          lsp = {
+        score_offset = 90,  -- Lower score relative to snippets if needed
+      },
           copilot = {
             name = "copilot",
             module = "blink-cmp-copilot",
