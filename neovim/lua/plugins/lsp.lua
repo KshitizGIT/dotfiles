@@ -16,8 +16,8 @@ return {
     }
     vim.lsp.config("roslyn_ls", {
       capabilities = capabilities,
-      -- Any other custom settings or hooks go here
     })
-    vim.lsp.enable("roslyn_ls")
+
+    require("mason-lspconfig").setup(opts)
   end,
 }
