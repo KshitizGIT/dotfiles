@@ -23,21 +23,5 @@ vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'Open a new tab' })
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 
--- Neotree remaps
-vim.keymap.set('n', '\\', '<CMD>Neotree toggle reveal<CR>', { desc = 'Open parent directory' })
-
-vim.keymap.set('n', '<leader>e', function()
-  local git_root = vim.fs.root(0, '.git')
-  if git_root then
-    require('neo-tree.command').execute {
-      toggle = true,
-      dir = git_root,
-    }
-  else
-    print 'No Git root found.'
-    -- Optional: fallback to the current working directory if not in a git repo
-    -- require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-  end
-end, { desc = 'Explorer NeoTree (Git Root)' })
 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = '[M]ake [F]ormat' })
